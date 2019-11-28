@@ -32,6 +32,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_Cadastro = new javax.swing.JMenu();
         jMenuItemCadastroAluno = new javax.swing.JMenuItem();
+        jMenuItemListaAlunos = new javax.swing.JMenuItem();
         jMenuItemSair = new javax.swing.JMenuItem();
         jMenu_Relatorio = new javax.swing.JMenu();
         jMenuItemListarFuncionarios = new javax.swing.JMenuItem();
@@ -70,6 +71,15 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
         jMenu_Cadastro.add(jMenuItemCadastroAluno);
+
+        jMenuItemListaAlunos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemListaAlunos.setText("Lista de alunos");
+        jMenuItemListaAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemListaAlunosActionPerformed(evt);
+            }
+        });
+        jMenu_Cadastro.add(jMenuItemListaAlunos);
 
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSair.setText("Sair");
@@ -130,6 +140,11 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemListarFuncionariosActionPerformed
 
+    private void jMenuItemListaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListaAlunosActionPerformed
+        ListaFuncionario lista = new ListaFuncionario();
+        lista.setVisible(true);
+    }//GEN-LAST:event_jMenuItemListaAlunosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,6 +184,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCadastroALunos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCadastroAluno;
+    private javax.swing.JMenuItem jMenuItemListaAlunos;
     private javax.swing.JMenuItem jMenuItemListarFuncionarios;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenu_Cadastro;

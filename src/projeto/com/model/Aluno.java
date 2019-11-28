@@ -7,6 +7,8 @@ package projeto.com.model;
 
 import com.digitalpersona.onetouch.DPFPGlobal;
 import com.digitalpersona.onetouch.DPFPTemplate;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -24,6 +27,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "aluno")
 public class Aluno implements Serializable{
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -32,6 +37,9 @@ public class Aluno implements Serializable{
 	private String nome;
 	@Lob
 	private byte[] digital;
+        private Boolean acesso;
+
+        
 	
 	public Aluno(){}
 	
@@ -74,7 +82,9 @@ public class Aluno implements Serializable{
 	}
 
 	public void setId(Integer id) {
+            Integer oldId = this.id;
 		this.id = id;
+        changeSupport.firePropertyChange("id", oldId, id);
 	}
 	
 	public String getNome() {
@@ -82,7 +92,9 @@ public class Aluno implements Serializable{
 	}
 	
 	public void setNome(String nome) {
+            String oldNome = this.nome;
 		this.nome = nome;
+        changeSupport.firePropertyChange("nome", oldNome, nome);
 	}
 
 	public DPFPTemplate getDigital() {	
@@ -92,4 +104,20 @@ public class Aluno implements Serializable{
 	public void setDigital(DPFPTemplate digital) {
 		this.digital = digital.serialize();
 	}	    
+
+        public Boolean getAcesso() {
+            return acesso;
+        }
+
+        public void setAcesso(Boolean acesso) {
+            this.acesso = acesso;
+        }
+        
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
+    }
 }

@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.hbm2ddl.SchemaUpdate;
-import projeto.com.model.Funcionario;
+import projeto.com.model.Aluno;
 
 /**
  *
@@ -60,7 +60,7 @@ public class HibernateUtil {
 						.setProperty("hibernate.c3p0.min_size", "20")
 						.setProperty("hibernate.c3p0.timeout", "180")
 						.setProperty("hibernate.cache.user_query_cache", "true") 
-						.addAnnotatedClass(Funcionario.class);
+						.addAnnotatedClass(Aluno.class);
 
 				sessionFactory = configuration.buildSessionFactory();
 			} catch (Throwable ex) {

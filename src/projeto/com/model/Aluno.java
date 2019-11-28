@@ -22,8 +22,8 @@ import javax.persistence.Table;
  */
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "funcionario")
-public class Funcionario implements Serializable{
+@Table(name = "aluno")
+public class Aluno implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -33,9 +33,9 @@ public class Funcionario implements Serializable{
 	@Lob
 	private byte[] digital;
 	
-	public Funcionario(){}
+	public Aluno(){}
 	
-	public Funcionario(String nome){
+	public Aluno(String nome){
 		this.nome = nome;
 	}
 	
@@ -60,7 +60,7 @@ public class Funcionario implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Funcionario other = (Funcionario) obj;
+		Aluno other = (Aluno) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

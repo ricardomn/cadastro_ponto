@@ -14,9 +14,9 @@ import com.digitalpersona.onetouch.processing.DPFPFeatureExtraction;
 import com.digitalpersona.onetouch.processing.DPFPImageQualityException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import projeto.com.DAO.FuncionarioDAO;
+import projeto.com.DAO.AlunoDAO;
 import projeto.com.biometria.Biometria;
-import projeto.com.model.Funcionario;
+import projeto.com.model.Aluno;
 
 /**
  *
@@ -41,8 +41,8 @@ public class Cadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextFieldNomeFuncionario = new javax.swing.JTextField();
-        jLabelNomeFuncionario = new javax.swing.JLabel();
+        jTextFieldNomeAluno = new javax.swing.JTextField();
+        jLabelNomeAluno = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAvisosSistema = new javax.swing.JTextArea();
         jLabelAvisosSistema = new javax.swing.JLabel();
@@ -53,13 +53,13 @@ public class Cadastro extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
-        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNomeAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeFuncionarioActionPerformed(evt);
+                jTextFieldNomeAlunoActionPerformed(evt);
             }
         });
 
-        jLabelNomeFuncionario.setText("Nome do funcionário");
+        jLabelNomeAluno.setText("Nome do aluno");
 
         jTextAreaAvisosSistema.setColumns(20);
         jTextAreaAvisosSistema.setRows(5);
@@ -95,19 +95,19 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(jButtonSair))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNomeFuncionario)
-                            .addComponent(jLabelAvisosSistema))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextFieldNomeFuncionario))
+                            .addComponent(jLabelNomeAluno)
+                            .addComponent(jLabelAvisosSistema)
+                            .addComponent(jTextFieldNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabelNomeFuncionario)
+                .addComponent(jLabelNomeAluno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelAvisosSistema)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,26 +138,26 @@ public class Cadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncionarioActionPerformed
+    private void jTextFieldNomeAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeFuncionarioActionPerformed
+    }//GEN-LAST:event_jTextFieldNomeAlunoActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-        String nome = jTextFieldNomeFuncionario.getText();
+        String nome = jTextFieldNomeAluno.getText();
         cadastrar(nome);
-        jTextFieldNomeFuncionario.setText("");
+        jTextFieldNomeAluno.setText("");
         jTextAreaAvisosSistema.setText("");
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     public void cadastrar(String nome) {
 		String nomeRecebido;
                 
-		Funcionario funcionario = new Funcionario(nome);
-		funcionarioDAO.salvar(funcionario);
+		Aluno funcionario = new Aluno(nome);
+		alunoDAO.salvar(funcionario);
 
 		// Cadastro da digital
 		try {
@@ -187,7 +187,7 @@ public class Cadastro extends javax.swing.JFrame {
 			}
 
 			funcionario.setDigital(enrollment.getTemplate());
-			funcionarioDAO.salvar(funcionario); //atualiza no banco de dados ja com a digital
+			alunoDAO.salvar(funcionario); //atualiza no banco de dados ja com a digital
 
 			JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!");
 		} catch (DPFPImageQualityException e) {
@@ -202,7 +202,7 @@ public class Cadastro extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private static Scanner scanner = new Scanner(System.in);
-    private static FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+    private static AlunoDAO alunoDAO = new AlunoDAO();
     private static int opcao = 0;    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -240,10 +240,10 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabelAvisosSistema;
-    private javax.swing.JLabel jLabelNomeFuncionario;
+    private javax.swing.JLabel jLabelNomeAluno;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaAvisosSistema;
-    private javax.swing.JTextField jTextFieldNomeFuncionario;
+    private javax.swing.JTextField jTextFieldNomeAluno;
     // End of variables declaration//GEN-END:variables
 }

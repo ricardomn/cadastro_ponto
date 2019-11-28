@@ -8,14 +8,14 @@ package projeto.com.DAO;
 import java.util.ArrayList;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
-import projeto.com.model.Funcionario;
+import projeto.com.model.Aluno;
 import projeto.com.util.HibernateUtil;
 
 /**
  *
  * @author GerenteTI
  */
-public class FuncionarioDAO {
+public class AlunoDAO {
 	
 	/**
 	 * Retorna uma sessao do hibernate
@@ -29,7 +29,7 @@ public class FuncionarioDAO {
 	 * Salva o funcionario passado por parametro
 	 * @param funcionario
 	 */
-    public void salvar(Funcionario funcionario) {
+    public void salvar(Aluno funcionario) {
     	Session session = getSession();
         session.saveOrUpdate(funcionario);
     	session.getTransaction().commit();
@@ -41,8 +41,8 @@ public class FuncionarioDAO {
      * @return
      */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Funcionario> getTodos(){		
-		return (ArrayList<Funcionario>) getSession().createCriteria(Funcionario.class).addOrder(Order.asc("id")).list();       
+	public ArrayList<Aluno> getTodos(){		
+		return (ArrayList<Aluno>) getSession().createCriteria(Aluno.class).addOrder(Order.asc("id")).list();       
     }   
       
 }

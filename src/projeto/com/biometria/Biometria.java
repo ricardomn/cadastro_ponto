@@ -20,6 +20,7 @@ import com.digitalpersona.onetouch.processing.DPFPFeatureExtraction;
 import com.digitalpersona.onetouch.verification.DPFPVerification;
 import com.digitalpersona.onetouch.verification.DPFPVerificationResult;
 import java.util.concurrent.LinkedBlockingQueue;
+import javafx.scene.image.Image;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,6 +59,7 @@ public class Biometria {
 	public static DPFPSample getDigital() throws InterruptedException {
 		final LinkedBlockingQueue<DPFPSample> samples = new LinkedBlockingQueue<DPFPSample>();
 		DPFPCapture capture = DPFPGlobal.getCaptureFactory().createCapture();
+                
 		capture.setReaderSerialNumber(null);
 		capture.setPriority(DPFPCapturePriority.CAPTURE_PRIORITY_LOW);
 		capture.addDataListener(new DPFPDataListener() {

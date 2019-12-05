@@ -32,10 +32,9 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_Cadastro = new javax.swing.JMenu();
         jMenuItemCadastroAluno = new javax.swing.JMenuItem();
-        jMenuItemListaAlunos = new javax.swing.JMenuItem();
         jMenuItemSair = new javax.swing.JMenuItem();
         jMenu_Relatorio = new javax.swing.JMenu();
-        jMenuItemListarFuncionarios = new javax.swing.JMenuItem();
+        jMenuItemListarAlunos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,15 +71,6 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         jMenu_Cadastro.add(jMenuItemCadastroAluno);
 
-        jMenuItemListaAlunos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemListaAlunos.setText("Lista de alunos");
-        jMenuItemListaAlunos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListaAlunosActionPerformed(evt);
-            }
-        });
-        jMenu_Cadastro.add(jMenuItemListaAlunos);
-
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
@@ -94,14 +84,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jMenu_Relatorio.setText("Relatório");
 
-        jMenuItemListarFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemListarFuncionarios.setText("Listar funcionários");
-        jMenuItemListarFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemListarAlunos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemListarAlunos.setText("Listar de alunos");
+        jMenuItemListarAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListarFuncionariosActionPerformed(evt);
+                jMenuItemListarAlunosActionPerformed(evt);
             }
         });
-        jMenu_Relatorio.add(jMenuItemListarFuncionarios);
+        jMenu_Relatorio.add(jMenuItemListarAlunos);
 
         jMenuBar1.add(jMenu_Relatorio);
 
@@ -136,14 +126,10 @@ public class TelaInicial extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
-    private void jMenuItemListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarFuncionariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemListarFuncionariosActionPerformed
-
-    private void jMenuItemListaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListaAlunosActionPerformed
+    private void jMenuItemListarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarAlunosActionPerformed
         ListaFuncionario lista = new ListaFuncionario();
         lista.setVisible(true);
-    }//GEN-LAST:event_jMenuItemListaAlunosActionPerformed
+    }//GEN-LAST:event_jMenuItemListarAlunosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,8 +170,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCadastroALunos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCadastroAluno;
-    private javax.swing.JMenuItem jMenuItemListaAlunos;
-    private javax.swing.JMenuItem jMenuItemListarFuncionarios;
+    private javax.swing.JMenuItem jMenuItemListarAlunos;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenu_Cadastro;
     private javax.swing.JMenu jMenu_Relatorio;

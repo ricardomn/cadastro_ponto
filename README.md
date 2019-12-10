@@ -1,11 +1,13 @@
-# cadastro_ponto
-Pequeno projeto com cadastro de funcionário utilizando SDK de Biometria da digital persona
+# Sistema de controle de acesso
 
-# banco de dados
-Mysql
+Sistema feito na linguagem Java utilizando o framework swing java para DESKTOP. 
 
-# Linguagem de programação
-Java
+IDE utilizada: Netbens.
 
-# Framework
-Swing
+Bando de dados: Mysql.
+
+Biblioteca para captura das digitais: SDK da Digital persona.
+
+ORM para persistência: Hibernate.
+
+Modelo MVC.

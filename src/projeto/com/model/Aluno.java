@@ -43,8 +43,9 @@ public class Aluno implements Serializable{
 	
 	public Aluno(){}
 	
-	public Aluno(String nome){
+	public Aluno(String nome, Boolean acesso){
 		this.nome = nome;
+                this.acesso = acesso;
 	}
 	
 	@Override

@@ -33,6 +33,7 @@ public class AlunoDAO {
     	Session session = getSession();
         session.saveOrUpdate(funcionario);
     	session.getTransaction().commit();
+        
     }
 
 

@@ -5,16 +5,20 @@
  */
 package projeto.com.main;
 
+import org.hibernate.Session;
+
 /**
  *
  * @author gabriel
  */
 public class ListaFuncionario extends javax.swing.JFrame {
 
+  
     /**
      * Creates new form ListaFUncionario
      */
     public ListaFuncionario() {
+  
         initComponents();
     }
 
@@ -37,8 +41,9 @@ public class ListaFuncionario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(173, 216, 230));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de alunos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, alunoList1, jTable1);
